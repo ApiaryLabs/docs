@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-cache-control" content="no-cache">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 2.2">
+
+    <!-- Primary Meta Tags -->
+    <title>Honeycomb White Paper V1</title>
+    <meta name="title" content="Honeycomb White Paper V1">
+    <meta name="description" content="1 Abstract" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://docs.apiarylabs.xyz/whitepaper/">
+    <meta property="og:title" content="Honeycomb White Paper V1">
+    <meta property="og:description" content="1 Abstract">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://docs.apiarylabs.xyz/whitepaper/">
+    <meta property="twitter:title" content="Honeycomb White Paper V1">
+    <meta property="twitter:description" content="1 Abstract">
+
+    <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="/resources/css/retype.css?v=2.2.703984485695" rel="stylesheet" data-turbo-track="reload" />
+
+    <script type="text/javascript" src="/resources/js/config.js?v=2.2.703984485695" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/retype.js?v=2.2" defer data-turbo-track="reload"></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=2.2.703984485695" defer></script>
+    <link href="/resources/css/katex.css?v=2.2" rel="stylesheet" />
+    <script id="katex-js" type="text/javascript" src="/resources/js/katex.js?v=2.2" defer></script>
+</head>
+<body>
+    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+        <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+    
+        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+            <div class="container relative flex items-center justify-between grow pr-6 md:justify-start">
+                <!-- Mobile menu button skeleton -->
+                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="docs-sidebar-toggle"></div>
+        
+                <!-- Logo -->
+                <div class="flex items-center justify-between h-full py-2 md:w-75">
+                    <div class="flex items-center px-2 md:px-6">
+                        <a id="docs-site-logo" href="/" class="flex items-center leading-snug text-2xl">
+                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Apiary Labs</span>
+                        </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
+                    </div>
+        
+                    <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+                </div>
+        
+                <div class="flex justify-between md:grow">
+                    <!-- Top Nav -->
+                    <nav class="hidden md:flex">
+                        <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                            <li class="md:mr-6">
+                                <a class="block py-2 text-sm text-gray-400 whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 md:mb-0" href="https://apiarylabs.xyz">Apiary Labs</a>
+                            </li>
+                        </ul>
+                    </nav>
+        
+                    <!-- Header Right Skeleton -->
+                    <div v-cloak class="flex justify-end grow skeleton">
+        
+                        <!-- Search input mock -->
+                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                            </div>
+        
+                            <input class="w-full h-10 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 placeholder-gray-400 dark:placeholder-dark-400"
+                            style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search" />
+                        </div>
+        
+                        <!-- Mobile search button mock -->
+                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                        </div>
+        
+                        <!-- Dark mode switch placehokder -->
+                        <div class="w-10 h-10 lg:ml-2"></div>
+        
+                        <!-- History button mock -->
+                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                        </div>
+                    </div>
+        
+                    <div v-cloak class="flex justify-end grow">
+                        <div id="docs-mobile-search-button"></div>
+                        <doc-search-desktop></doc-search-desktop>
+        
+                        <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                        <doc-history></doc-history>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+        <div class="container relative flex bg-white">
+            <!-- Sidebar Skeleton -->
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            
+                <!-- Render this div, if config.showSidebarFilter is `true` -->
+                <div class="flex items-center h-16 px-6">
+                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter" />
+                </div>
+            
+                <div class="pl-6 mb-4 mt-1">
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                </div>
+            
+                <div class="shrink-0 mt-auto bg-transparent dark:border-dark-650">
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Sidebar component -->
+            <doc-sidebar v-cloak>
+                <template #sidebar-footer>
+                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650">
+            
+                        <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                            <nav>
+                                <ul class="flex flex-wrap justify-center items-center">
+                                    <li class="mr-6">
+                                        <a class="block py-1 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://apiarylabs.xyz">Apiary Labs</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+            
+                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                            <span class="text-xs whitespace-nowrap">Powered by</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                        </a>
+                    </div>
+                </template>
+            </doc-sidebar>
+    
+            <div class="grow min-w-0 dark:bg-dark-850">
+                <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+                <div class="flex">
+                    <div class="grow min-w-0 px-6 md:px-16">
+                        <main class="relative pt-6 pb-16">
+                            <div class="docs-markdown" id="docs-content">
+                                <!-- Rendered if sidebar right is enabled -->
+                                <div id="docs-sidebar-right-toggle"></div>
+                
+                                <!-- Page content  -->
+<doc-anchor-target id="honeycomb-white-paper-v1" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#honeycomb-white-paper-v1">#</doc-anchor-trigger>
+        <span>Honeycomb White Paper V1</span>
+    </h1>
+</doc-anchor-target>
+<doc-anchor-target id="table-of-content">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#table-of-content">#</doc-anchor-trigger>
+        <span>Table of Content</span>
+    </h2>
+</doc-anchor-target>
+<p>1 <a href="../abstract/">Abstract</a></p>
+<doc-anchor-target id="1-abstract">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#1-abstract">#</doc-anchor-trigger>
+        <span>1 Abstract</span>
+    </h3>
+</doc-anchor-target>
+<p>Apiary is the first community-driven decentralized credit protocol that seeks to redefine the traditional fractional banking system to democratize credit. At Apiary, we believe that credit should be transparent, accessible, and inclusive. Democratized credit is realized through the use of blockchain technology, which employs algorithmic smart contracts, thereby eliminating the need for intermediaries. Empowr also introduces a stable digital currency designed to complement both fiat and cryptocurrencies as a means to transact and store value.</p>
+<p>Like banks, Apiary Protocol aims to attract deposits that act as base money to create Credit. Unlike banks that create Credit Money through lending deposits out and profiting from the credit creation. Apiary Protocol takes deposits that act as base money. In return, Credit Money is created following an algorithm through an on-chain credit facility, giving credit ownership and ultimately the freedom to either borrow, earn and swap.</p>
+<p>Unlike DeFi that mainly uses an overcollateralized model, individuals are able to achieve True Credit and borrow against their credit. This means, Apiary allows borrowers to obtain undercollateralized loans at zero interest without a fixed repayment date.</p>
+<doc-anchor-target id="2-introduction">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#2-introduction">#</doc-anchor-trigger>
+        <span>2 Introduction</span>
+    </h3>
+</doc-anchor-target>
+<doc-anchor-target id="21-the-problem">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#21-the-problem">#</doc-anchor-trigger>
+        <span>2.1 The Problem</span>
+    </h4>
+</doc-anchor-target>
+<p>Alongside vast improvements in technology in the last decade, the financial services industry has experienced significant digital advancements. Innovations in the financial sector have however failed to make a significant impact on the lives of the marginalized, for whom access to capital is still a distant illusion. In particular, women, young adults and people living in poverty are disproportionately underserved.</p>
+<p>It is known in traditional finance (TradFi) that the process of attaining credit utilizes archaic methods such as credit scoring to decide a borrower’s riskiness. In addition, credit processes are excessively complex, resulting in a lengthy process with unnecessary high fees. This means that it is uneconomical to provide small loans. Moreover, the decision-making process is opaque and unpredictable. Oftentimes, rules are dictated by those in control, creating a misalignment of incentives between institutions and their participants.</p>
+<p>As a result, TradFi has historically excluded a majority of individuals – those not considered wealthy and those who never had the opportunity to accumulate a proper credit history. More than 1.7 billion people today are unable to receive financial services from traditional institutions in any capacity.</p>
+<p>While various Fintech companies have improved access to financial services and tout their own advantages, many of them are still heavily verticalized and have carried forward inefficient processes from TradFi. For example, many peer-to-peer (P2P) lending platforms still rely on credit scores to approve loans. This is a significant obstacle for those who do not live in countries equipped with proper informational financial infrastructures. Furthermore, P2P lending is considered an unsecured loan, exposing borrowers to higher interest rates so as to compensate lenders for the risk.</p>
+<p>Built on the blockchain and utilizing smart contracts, Decentralised Finance (DeFi) was introduced to reinvent TradFi services. In DeFi, financial transactions are powered by smart contracts, eliminating intermediaries, thereby reducing the cost and friction experienced in TradFi. DeFi opens up a myriad of financial possibilities for those who have been traditionally outcasted by TradFi, while remaining open to those who live in countries with strong financial infrastructure and who already have access to financial products.</p>
+<p>In the current DeFi lending model, access to capital demands over-collateralization, which is deemed both necessary to overcome extreme volatility and as an incentive to repay the loan. This status quo is capital inefficient and costly.</p>
+<p>To overcome these barriers, new DeFi protocols have come up with innovative solutions to offer under-collateralized loans. Such examples include flash loans, NFT collateral and leveraged trading. However, these approaches still exclude those who have been traditionally underbanked.  Flash loans and leveraged trading are catered towards the speculative market, while NFT collateral requires owning a highly speculative and illiquid asset which the financially marginalized do not have access to. In essence, DeFi’s over-collateralization model does not advance financial inclusion for those who need it the most.</p>
+<doc-anchor-target id="22-the-solution">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#22-the-solution">#</doc-anchor-trigger>
+        <span>2.2 The Solution</span>
+    </h4>
+</doc-anchor-target>
+<p>Empowr addresses the above-mentioned shortcomings by democratizing credit, making it accessible to anyone. This is achieved through the use of a trust-less digital currency, which is used as a medium of exchange. With Web 3.0, Empowr is able to re-define and democratize how Credit Money is created and managed. Unlike how traditional banks create Credit Money that they ultimately own, Empowr gives ownership to users of the protocol. What this means is that each individual has full control of their Credit, which gives them the autonomy to choose what to do with their Credit. Users have the option to stake and earn protocol fees, or to swap their Credit in an exchange or borrow against their credit. Our team hopes to Empower society, so that anyone anywhere can freely access capital without being inhibited by the status quo.</p>
+<doc-anchor-target id="23-value-proposition">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#23-value-proposition">#</doc-anchor-trigger>
+        <span>2.3 Value Proposition</span>
+    </h4>
+</doc-anchor-target>
+<p><strong>Proposition 1: Capital Efficient</strong><br />
+<em>Under Collateralization</em><br />
+Empowr’s ecosystem is built on the concept of a bonding curve and token incentives, enabling users to acquire loans at a value that is larger than their existing collateral. This is in contrast to other DeFi protocols which require borrowers to have significantly over-collateralized positions, which we deem to be highly capital inefficient. In essence, Empowr provides leverage in the form of under-collateralized loans, which allows users to be efficient and effective in their use of capital.</p>
+<p><em>Zero Interest</em><br />
+As the counterparty is removed, interest rates traditionally associated with the cost of borrowing have been eliminated. Empowr users can borrow money without paying any interest they otherwise would have incurred in TradFi.</p>
+<p><em>No fixed payment period</em><br />
+Likewise, the removal of counterparty removes the need for fixed or periodic payment periods. Borrowers are no longer obligated to pay back their loans within a rigid time frame, which may be disruptive to the operation of their businesses, personal finance or investment. Instead, users are simply incentivized to prudently manage their debt ratio.</p>
+<p><strong>Value Proposition 2: Frictionless</strong><br />
+<em>No need for documentation</em><br />
+DeFi does not require any form of legal documentation to access financial services. This means no KYC is required to open an account. More importantly, the practice of credit scoring to access loans –  deemed necessary as a form of risk mitigation in TradFi –  will be unquestionably made redundant.</p>
+<p><em>Instant liquidity</em><br />
+Acquiring loans is a time-consuming process in TradFi. Empowr users receive instant on-chain liquidity as the protocol operates by minting its very own stable digital currency instead of relying on other sources of liquidity.</p>
+<p><em>Low fees</em><br />
+In contrast to the high operating costs (e.g. brick and mortar banks, back offices, databases, compliance handling etc.) associated with TradFi, DeFi has low operating costs by design. This is because DeFi runs on the public blockchain which covers most of the backend infrastructure cost. The result is lower cost which we translate to our users.</p>
+<p>In short, DeFi reduces friction and lowers the barrier to entry for financial services. Anyone can use Empowr to access instant capital anytime, anywhere as long as they have an internet connection, a mobile phone or computer.</p>
+<p><strong>Value Proposition 3: Attractive yields</strong><br />
+Empowr users can choose to stake their Credit Token which will earn them a portion of the protocol’s revenue. This is a reward for contributing to the stability of the protocol. Moreover, users will also enjoy Credit Growth as the community grows.</p>
+<p><strong>Value Proposition 4: Transparent and Governance-Free</strong><br />
+Decentralized governance protocols that give token holders the right to vote on protocol changes and economic parameters have proven to be ineffective due to low participation rates and incentive misalignment. This is because power is acceded to users according to the number of tokens they hold, meaning that users with a large number of tokens hold more power. At the same time, each voter has different biases, motivations and opinions on what is best. This has caused some protocols to produce suboptimal outcomes, where some users have maliciously attempted to benefit themselves at the expense of others. Empowr has taken a stance not to implement any governance mechanism so that we can remain highly efficient as a protocol.</p>
+<p>As such, Empowr does not rely on any governance mechanism to vote on monetary intervention. All protocol parameters are pre-set and immutable, and fees follow an algorithm controlled by the protocol. This means that the protocol is clearly defined and will not be subject to any external human intervention, making each interaction deterministic and predictable, where users will know what to expect.</p>
+<doc-anchor-target id="30-honeycomb-protocol">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#30-honeycomb-protocol">#</doc-anchor-trigger>
+        <span>3.0 Honeycomb Protocol</span>
+    </h3>
+</doc-anchor-target>
+<insert image>
+<doc-anchor-target id="31-honeycombs-four-token-model">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#31-honeycombs-four-token-model">#</doc-anchor-trigger>
+        <span>3.1 Honeycomb&#x27;s Four Token Model</span>
+    </h4>
+</doc-anchor-target>
+<p>Empowr uses a four token model – Reserve Currency (L1 Tokens), Credit Token, Empowr Stable Coin and EMP Token – to facilitate interaction within its ecosystem. This creates decentralized credit and liquidity. The four tokens are described as follows:</p>
+<ol>
+<li>The <strong>Reserve Currency</strong> is a non-stable cryptocurrency (L1 Tokens) that acts as the base money in the Credit Facility. It will be used as a reserve to back-up and give value to the Credit Token.</li>
+<li><strong>Credit Token</strong> is the core of the Empowr Protocol and is a continuous token derived from the bonding curve, whose value is deterministic and an increasing function of the reserve currency. Empowr users can collateralize it and obtain liquidity in the form of stable coins.</li>
+<li><strong>Empowr Stable Coin (ESC)</strong> is pegged to the US Dollar. It is minted against the Credit Token to be utilized based on the needs of the individual. Empowr Stable Coin is trust-lessly redeemable for the EMP Token.</li>
+<li><strong>EMP Token</strong> is the Empowr Protocol Utility Token that serves to capture fees and provide incentives.  It is used to stabilize the ESC dollar value through liquidity conversion. All EMP tokens will be minted at genesis for gradual distribution.</li>
+</ol>
+<doc-anchor-target id="32-honeycombs-protocol-comprises-of-the-following-stakeholders">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#32-honeycombs-protocol-comprises-of-the-following-stakeholders">#</doc-anchor-trigger>
+        <span>3.2 Honeycomb’s Protocol comprises of the following stakeholders:</span>
+    </h4>
+</doc-anchor-target>
+<ol>
+<li>Borrowers collateralize their Credit Tokens in the to mint stable coin based on a credit line.</li>
+<li>Liquidity Providers lock pair tokens - Credit Token and EMP Token -  to the Decentralised Credit Exchange in exchange for earning a portion of the protocol’s revenue.</li>
+<li>Traders will swap Credit Tokens or EMP Tokens interchangeably based on their utility by taking advantage to price differentials or improve their Credit Line or reduce their credit holdings.</li>
+<li>Arbitrageurs will take advantage of the deviation in price between the stablecoin and US dollar by swapping EMP or stable coin with the liquidy converter to make a risk free profit.</li>
+</ol>
+<doc-anchor-target id="33-honeycombs-protocol-comprises-of-the-following-stakeholders">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#33-honeycombs-protocol-comprises-of-the-following-stakeholders">#</doc-anchor-trigger>
+        <span>3.3 Honeycomb’s Protocol comprises of the following stakeholders:</span>
+    </h4>
+</doc-anchor-target>
+<p>Apiary Protocol is a fully automated, on-chain credit protocol built on the Ethereum blockchain. Like existing DeFi credit protocols, borrowers are required to over-collateralise in order to take on debt in the form of stablecoins. Unlike credit protocols, Apiary is capital efficient as it does not require overcollateralization, giving their users “True Credit”  to borrow more than their initial collateral.</p>
+<p>In order to join Apiary’s ecosystem, participants must first deposit reserve currency that will be used as base money to generate Credit via the Credit Facility. The value of credit follows a deterministic algorithm that grows as base money increases. Credit Token holders have the option to either borrow against their credit in the liquidity Facility or become a liquidity provider by locking their Credit Tokens in the Decentralised Credit Exchange to earn a portion of the protocol’s revenue. Apart from borrowing or earning, Credit token holders can swap Credit Tokens with EMP token, vice versa to realize its future value ahead of time. To maintain the stability of the stable coin, arbitrageurs can make a risk free profit by convertering EMP and stable coin in the liquidity converter to adjust the supply in the secondary market. The four facilities work hand in hand to ensure the protocol functions as it should.</p>
+<doc-anchor-target id="40-system-overview">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#40-system-overview">#</doc-anchor-trigger>
+        <span>4.0 System Overview</span>
+    </h3>
+</doc-anchor-target>
+<doc-anchor-target id="41-credit-facility">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#41-credit-facility">#</doc-anchor-trigger>
+        <span>4.1 Credit Facility</span>
+    </h4>
+</doc-anchor-target>
+<p>The Credit Facility allows users to access credit anytime, anywhere in a permissionless manner. Upon depositing the approved Reserve Currency, the user receives an amount of Credit Tokens as determined by Empowr’s <em>Credit Facility Smart Contract</em>. The deterministic algorithm within the smart contract is integral to the system, as it removes the need for human intervention, while reliably creating credit for users. The combined Reserve Currency stored in the smart contract acts as the base money which will be used to determine the amount of credit in circulation.  As Empowr welcomes more users, the value of the Credit Token will increase, increasing the total credit supply.</p>
+<p>The Credit Facility Smart Contract is a continuous token model with a built-in liquidity mechanism that uses the concept of a bonding curve to create credit. The Credit Token can be minted or burned anytime by depositing or withdrawing the reserve currency to and from the smart contract. The credit value appreciation is governed by the fixed reserve ratio, <em>r</em>.</p>
+<doc-anchor-target id="411-price">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#411-price">#</doc-anchor-trigger>
+        <span>4.1.1 Price</span>
+    </h5>
+</doc-anchor-target>
+<div class="math"><pre>P = \frac{R}{Q_N\times r}</pre></div>
+<p>As each subsequent Reserve Currency is deposited, it increases the Credit Token supply. The price then recalibrates to continuously reflect the true price based on the constant reserve ratio. The ratio selected determines the price sensitivity, which directly correlates to the amount of credit in circulation.</p>
+<doc-anchor-target id="412-reserve-ratio">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#412-reserve-ratio">#</doc-anchor-trigger>
+        <span>4.1.2 Reserve Ratio</span>
+    </h5>
+</doc-anchor-target>
+<div class="math"><pre>r = \frac{R}{P\times Q_N}</pre></div>
+<p>The reserve ratio is a fixed ratio between the QN × price and the total Reserve Currency locked in the smart contract, R. This ratio will be determined by the Empowr team, and takes on a range from 0≤ r≤1 which will always be held constant</p>
+<insert pic>
+Scenario 1, r=1:
+When r=1, the credit token price remains constant and is independent of the Credit Token Supply. This implies that its value is pegged to the reserve currency. In other words, credit money is not created while the Credit Token becomes a proxy for the reserve currency. This can be likened to the gold standard, where the currency value is linked to gold and can be exchanged for a fixed amount of gold.
+<insert pic>
+Scenario 2, r<1:
+When r<1, the price increases relative to an increase in Reserve Currency, resulting in credit being created. This is similar to the current fractional reserve banking system we see today, where a fraction of the money in circulation is backed by actual cash on hand. The amount of excess credit created relative to the reserve currency is dependent on the reserve ratio. When r=0.5, the smart contract price increases linearly with the Credit Token supply, while the smart contract price increases exponentially when r<0.5 and diminishes when r>0.5, as can be seen in the table above. 
+<doc-anchor-target id="413-minting-of-nectar">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#413-minting-of-nectar">#</doc-anchor-trigger>
+        <span>4.1.3 Minting of Nectar</span>
+    </h5>
+</doc-anchor-target>
+<div class="math"><pre>q_n = Q_N(\frac{D_n}{R}+1)^r-1</pre></div>
+<p>Anyone can acquire Credit Token in exchange for depositing reserve currency, Dn. The amount of Credit Token, qn received follows the algorithm above where the quantity received is determined based on the total supply of the Credit Token in circulation, Q and the total reserve currency, R. The quantity of Credit Tokens minted is reduced for each subsequent mint, as both the total supply of Credit Tokens and Reserve Tokens increases. Simply put, each subsequent Credit Token minted becomes more “expensive”, and as such less Credit Tokens are received for the same amount of reserve currency.</p>
+<doc-anchor-target id="414-nectar-value">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#414-nectar-value">#</doc-anchor-trigger>
+        <span>4.1.4 Nectar Value</span>
+    </h5>
+</doc-anchor-target>
+<p>The Credit Token value, CTVn represents the amount of credit each Empowr user holds. Its value does not follow the conventional bonding curve value, Price×qn, as its immediate inflation may lead to undesirable behaviour, causing instability to the protocol. Instead the value of the Credit Token is derived from the integral of the price function as seen below. This formula behaves such that the value of every newly minted Credit Token approximately equals the reserve currency value at initiation. This way, it does not give bad agents incentive to cash out for immediate profit.</p>
+<div class="math"><pre>CTV_n=-r.P.Q_N\times ((\frac{q_n}{Q_N}+1)^\frac{1}{r} -1)\times P_{reserveToken,30ma}</pre></div>
+<p>The formula can be further broken down as such:</p>
+<div class="math"><pre>Quantity_{CTV}=-r.Q_N\times ((\frac{q_n}{Q_N}+1)^\frac{1}{r} -1)</pre></div>
+<p>The quantity component follows a concave relationship where QuantityCTV experiences diminishing returns for every increase in Credit Token the user holds. The unique concave property introduces unique implications in the Decentralised Credit Exchange and will be further explained in section (3.4.2) below.</p>
+<div class="math"><pre>Price_{CTV}=P \times P_{reserveToken,30ma}</pre></div>
+<p>The price component is derived by multiplying the price of the reserve currency, PreserveToken,30MA with the smart contract price, Price, which follows a deterministic price movement. Given that the Reserve Currency is a non-stable coin, it will be exposed to price volatility observed in the crypto market. To circumvent this, the 30-day moving average price is used, so as to hedge against price volatilities that may result in unfavourable outcomes for Empowr users.</p>
+<p>Where:</p>
+<div class="math"><pre>CTV_n = Price_{CTV} \times Quantity_{CTV}</pre></div>
+<doc-anchor-target id="415-credit-creation">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#415-credit-creation">#</doc-anchor-trigger>
+        <span>4.1.5 Credit Creation</span>
+    </h5>
+</doc-anchor-target>
+<div class="math"><pre>creditCreated = \frac{\sum_{k=1}^nCTV_n}{R}</pre></div>
+<p>The amount of credit created and circulated in the market can be defined as the sum of Credit Token value over the total value of Reserve Currency locked in the Credit Facility Smart Contract. It is determined by the reserve ratio parameter, 0≤r≤1.</p>
+<p>As mentioned previously, the reserve ratio is decided by the Empower team, and the value chosen has an impact on the amount of credit money created. A higher value of r results in less credit money created, while a lower value of r means more credit money is created. The table below shows how much credit money is created based on the different reserve ratio.</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th><em>r</em></th>
+<th>Approx Credit Multiplier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.1</td>
+<td>4.84x</td>
+</tr>
+<tr>
+<td>0.2</td>
+<td>3.87x</td>
+</tr>
+<tr>
+<td>0.3</td>
+<td>3.03x</td>
+</tr>
+<tr>
+<td>0.4</td>
+<td>2.42x</td>
+</tr>
+<tr>
+<td>0.5</td>
+<td>1.97x</td>
+</tr>
+<tr>
+<td>0.6</td>
+<td>1.67x</td>
+</tr>
+<tr>
+<td>0.7</td>
+<td>1.43x</td>
+</tr>
+<tr>
+<td>0.8</td>
+<td>1.25x</td>
+</tr>
+<tr>
+<td>0.9</td>
+<td>1.11x</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1x</td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="416-exiting-the-honeycomb">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#416-exiting-the-honeycomb">#</doc-anchor-trigger>
+        <span>4.1.6 Exiting the Honeycomb</span>
+    </h5>
+</doc-anchor-target>
+<p>Users of the protocol may choose to exit the protocol for any number of reasons. To do so, they may want to exchange their Credit Tokens for the Reserve Currency Token or another form of token that can be easily traded outside of the protocol. In such an event, the user has two options to choose from:</p>
+<ol>
+<li>Withdraw their Reserve Currency to receive their initial deposit</li>
+<li>Choose to swap their Credit Token for EMP token via the Decentralized Credit Exchange, refer to section 4.4</li>
+</ol>
+<p>Option 2 would be a dominant strategy in most cases as users are able to exchange their Credit Token for a value that is more than their initial deposit, if their Credit Token has appreciated in value. Since the Credit Token value uses the 30-day moving average price, there exists a possibility that Reserve Tokenn&gt;CTVn. In such a situation, some users may choose option 1 and withdraw their reserve currency as the payoff from doing so is higher at that point in time.</p>
+<doc-anchor-target id="417-withdrawal-fee">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#417-withdrawal-fee">#</doc-anchor-trigger>
+        <span>4.1.7 Withdrawal Fee</span>
+    </h5>
+</doc-anchor-target>
+<p>Withdrawal of the Reserve Currency imposes negative externalities on other Empowr users as it necessarily reduces the value of each user’s Credit Token. To disincentivize consecutive redemptions, a withdrawal fee is introduced, with an algorithm that works to make each subsequent withdrawal of the Reserve Currency more expensive. The algorithm also deters “whales” from redeeming a majority of the Credit Tokens at one time, as the amount of fees paid increases with the number of Credit Tokens redeemed.</p>
+<div class="math"><pre>withdrawal fee = f + B(t)</pre></div>
+<p>Similar to Liquity’s fee structure, Apiary’s  withdrawal fee follows the formula above and is a function of the base rate, Bt and the fixed redemption fee, f of 1%. The fee is subtracted from the redeemed Reserve Currency, reducing the amount of Reserve Currency the user receives in return.</p>
+<div class="math"><pre>B(t) = B(t - 1)_{\delta} + \alpha \times \frac{redeem_n}{Q_N}</pre></div>
+<p>The base rate is a function of the previous Base rate, Bt-1 and the redeemed Credit Token relative to the total Credit Token in circulation. During a redemption, the base rate is increased by the proportion of withdrawn Credit Token and added to the previous base rate. At launch, the base rate is initialized at 0.</p>
+<div class="math"><pre>Decay Function: B(T-1)_{\delta} = B(T-1)\times \delta^{\Delta t}</pre></div>
+<p>The previous base rate, Bt decays over time due to a decay factor, ∆t that is applied with every withdrawal prior to calculating the resulting fee. The magnitude of decay depends on the time that has elapsed, ∆t since the last redemption and  is selected such that the base rate tapers to 50% after 12  hours.</p>
+<doc-anchor-target id="42-liquidity-facility">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#42-liquidity-facility">#</doc-anchor-trigger>
+        <span>4.2 Liquidity Facility</span>
+    </h4>
+</doc-anchor-target>
+<p>The <em>Liquidity Facility</em> follows an over-collateralized model and is integral to the ecosystem as it provides users with easy access to liquidity in the form of a stable coin, done in a trust-less manner. Trust is achieved through transparency of the blockchain, effective management of risk and an incentive structure that ensures stability of the protocol and the Empowr Stable Coin (ESC).</p>
+<p>Empowr users can realize their credit anytime through the <em>Liquidity Facility</em> by collateralizing their Credit Token and paying a variable mint fee in the form of EMP Tokens. In exchange, the user receives ESC, the value of which is pegged to the USD.</p>
+<p>As ESC is minted against the Credit Token, Empowr defines ESC as debt owed to the protocol. Hence, the minting of ESC is recorded as debt. At all times, the user’s debt cannot exceed their credit line, else they will risk losing their Collateralized Credit Token. Risk-adverse users are encouraged to mint ESC based on their needs, so as to hedge against the loss of their credit token. In order to retrieve their Credit Token, the debt position must be closed off by burning the ESC through the <em>Credit Facility Smart Contract</em>.</p>
+<doc-anchor-target id="421-minting-honey">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#421-minting-honey">#</doc-anchor-trigger>
+        <span>4.2.1 Minting Honey</span>
+    </h5>
+</doc-anchor-target>
+<p>To mint the ESC, users will lock their Credit Token into the <em>Liquidity Facility Smart Contract</em>. The amount of ESC users are allowed to mint is based on the user’s credit line. A user’s credit line is calculated as a function of his deposit and a multiplier as seen below.</p>
+<div class="math"><pre>creditLine_n = Multiplier_n \times D_n</pre></div>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Tier</th>
+<th>CD Ratio</th>
+<th>Multiplier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>CD Ratio &lt; 1</td>
+<td>CD Ratio</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 ≤ CD Ratio &lt; 1.1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1.1 ≤ CD Ratio &lt; 1.2</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1.2 ≤ CD Ratio &lt; 1.3</td>
+<td>1.2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1≤CD Ratio&lt;1.1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1≤CD Ratio&lt;1.1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1≤CD Ratio&lt;1.1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>7</td>
+<td>1≤CD Ratio&lt;1.1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1≤CD Ratio&lt;1.1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>9</td>
+<td>1≤CD Ratio&lt;1.1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>10</td>
+<td>1≤CD Ratio&lt;1.1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The Multiplier follows a tiered level system that is based on the credit-to-deposit ratio (CD Ratio) which determines the amount of ESC the user can mint. The multiplier grows as more users join the Empowr protocol. Note that CTVn≥creditLinen, which implies a margin of safety to account for volatility in Credit Token price.</p>
+<doc-anchor-target id="421-minting-fee">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#421-minting-fee">#</doc-anchor-trigger>
+        <span>4.2.1 Minting Fee</span>
+    </h5>
+</doc-anchor-target>
+<p>Minting Fee is introduced as a form of “<em>monetary policy</em>” to govern the supply of ESC in circulation. It is also implemented as a form of friction to deter Empowr users from minting out more ESC than they should, which will lead to instability in the Liquidity Facility. The fee is designed such that it increases with overall debt level and only those with a higher willingness to pay will mint out more ESC. The minting fee follows the formula below.</p>
+<div class="math"><pre>Mint Fee = \frac{(Debt_{n,t-1}+Debt_{n,t})^{\alpha}}{Threshold_n} + \frac{Debt_N^{\beta}}{R} \times peg</pre></div>
+<p>where:</p>
+<div class="math"><pre>Threshold_n = (1 - r + \frac{D_n}{P\times q_n}) \times r.P.q_n</pre></div>
+<p>The Minting Fee is a function of the individual’s debt accrued, the overall debt in the smart contract and the peg between the ESC and the US Dollar. Threshold is an algorithmic driven variable that determines when the minting fee starts to scale such that the sum of each user’s threshold equals the to reserve currency.  and  represents the sensitivity parameter of each component. The peg is a parameter that either decreases or increases the mint fee based on the market forces of the ESC, so as to encourage or discourage users from introducing more supply into the market. More on that in section 3.3.3.4.</p>
+<doc-anchor-target id="422-achieving-stability">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#422-achieving-stability">#</doc-anchor-trigger>
+        <span>4.2.2 Achieving Stability</span>
+    </h5>
+</doc-anchor-target>
+<p>The primary objective of a currency is to maintain its stability so as to retain its purchasing power and to be adopted as a medium of exchange. This is achieved through trust in the system, where arbitrageurs can bring prices back to the peg by buying at a lower price and reliably redeeming for a profit if the peg breaks from the secondary market. However, if the trust in the redemption process breaks down, arbitrageurs may not participate, thereby causing the peg to break. Divergence from the peg is minimized through the stabilization mechanism and monetary interventions.</p>
+<p><strong>Stability Mechanism</strong>
+For the ESC to maintain its peg to the dollar, the Liquidity Facility must be sufficiently collateralized with Credit Tokens such that debt holders are always incentivized to repay their loans, in an environment where creditworthiness is unknown. At the same time, the price volatility of the base money needs to be taken into consideration. To overcome this volatility, three levels of stability measures are put in place to ensure the ESC maintains its peg. The three levels are:</p>
+<ol>
+<li>Margin Call</li>
+<li>Redistribution Management</li>
+<li>Circuit Breaker</li>
+</ol>
+<p>Should the execution of a particular level be unsuccessful, the next level will be triggered.</p>
+<p><em>Level 1: Margin Call</em>
+Margin Call is the first line of defense and is triggered when the debt level of a user surpasses 90% of the Credit Line. The Margin Call notifies the user to reduce their debt level or improve their credit line by locking up more Credit Tokens.</p>
+<p><em>Level 2: Redistribution Management</em></p>
+<div class="math"><pre>distribution Parameter_n = \frac{creditLine_n - Debt_n}{\sum{creditLine_n-Debt_n}}</pre></div>
+<p>Redistribution is triggered when the user’s Debtn&gt;creditLinen.  The smart contract will automatically close off the borrower’s debt position by redistributing the debt position to other existing debt holders based on the distribution parameter above. Other debt holders will inherit the liquidated Credit Token pro-rata as a compensation for taking on debt, and they will experience a net positive benefit as the CTVn&gt;creditLine.</p>
+<p>To prevent cascading liquidation, the distribution parameter prioritizes users with a healthier Debt-to-Credit ratio. Debt holders with a healthier Debt-to-Credit ratio will be better off as they will receive more Credit Tokens, giving users an incentive to maintain a healthy debt level. Similarly, the threat of liquidation and loss of potential appreciation of the Credit Token value incentivizes risky borrowers to improve their Debt-to-Credit ratio.</p>
+<p><em>Level 3: Circuit Breaker</em></p>
+<div class="math"><pre>TDCR_N = Total Credit to Debt Ratio = \frac{creditLine_N}{Debt_N}</pre></div>
+<p>To keep the total ESC in circulation sufficiently collateralized in a time of crisis, the protocol incorporates a Circuit Breaker that prevents the Liquidity Facility from falling below the critical threshold, TCDR&lt;1. When Circuit Breaker is in force, all operations that would worsen the TCDRN will be temporarily disabled. In this time, only the following actions are permissible:</p>
+<ul>
+<li>Increase the credit line by collateralizing more Credit Tokens</li>
+<li>Reduce debt position by burning ESC</li>
+</ul>
+<p>The Liquidity Facility will resume once the protocol is deemed stable – when TCDRN is above 1.1.
+It is important to note that TCDRN incorporates the actual price of the reserve currency instead of the 30-day moving average, as the price of the reserveCurrency&lt;reserveCurrency30MA during a bear market. This allows the system to activate Circuit Breaker at an earlier time, which is a safety precaution to ensure sufficient collateralization.</p>
+<p><strong>Monetary Invervention</strong>
+Price of the ESC in the secondary market may fluctuate due to market forces. In order to return the ESC price back to its peg, the supply of ESC must be adjusted to meet liquidity demands, where:</p>
+<ul>
+<li>All else equal, an increase in economic activity will result in higher demand for the ESC, pushing its price above the peg. By sufficiently increasing the supply of ESC, the price will return back to its peg.</li>
+<li>All else equal, a decrease in economic activity will result in lower demand for the ESC, pushing its price below the peg. By sufficiently decreasing the supply of ESC, the price will return back to its peg.</li>
+</ul>
+<p><strong>Liquidity Converter</strong>
+Price of the ESC in the secondary market may fluctuate due to market forces. In order to return the ESC price back to its peg, the supply of ESC must be adjusted to meet liquidity demands, where:</p>
+<ul>
+<li>All else equal, an increase in economic activity will result in higher demand for the ESC, pushing its price above the peg. By sufficiently increasing the supply of ESC, the price will return back to its peg.</li>
+<li>All else equal, a decrease in economic activity will result in lower demand for the ESC, pushing its price below the peg. By sufficiently decreasing the supply of ESC, the price will return back to its peg.</li>
+</ul>
+<p><strong>Monetary Policy</strong>
+The Minting fee acts as a second line of defense, where the minting fee adjusts and scales relative to price deviation from the peg, to encourage or discourage the creation of newly minted ESC as mentioned above. When:</p>
+<ul>
+<li>ESC &lt; 1 USD, it implies a contraction in economic activity.  The minting fee becomes more expensive disincentivizing the minting of ESC, bringing the ESC back to equilibrium.</li>
+<li>ESC &gt; 1 USD, it implies an expansion in economic activity. The minting fee becomes cheaper, incentivizing the minting of ESC, bringing the ESC back to equilibrium.</li>
+</ul>
+<p>This can be likened to the Federal Reserve adjusting interest rates, thereby making borrowing more or less expensive, so as to slow or stimulate the growth of an economy.</p>
+<doc-anchor-target id="43-decentralised-credit-exchange">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#43-decentralised-credit-exchange">#</doc-anchor-trigger>
+        <span>4.3 Decentralised Credit Exchange</span>
+    </h4>
+</doc-anchor-target>
+<p>Like all DEXes in the market, the Decentralised Credit Exchange (DCE) is an automated market maker that uses a constant product curve to determine the exchange rate between the Credit Token and the EMP Token. The DCE is integral to Empowr’s ecosystem as it provides continuous liquidity and price discovery for the Credit Token. This provides debt holders the incentive to close their debt position, as they are able to swap their Credit Token for a value that is higher than their debt, providing stability. At the same time, it allows users to realize the value of their Credit Token by selling them.</p>
+<doc-anchor-target id="431-credit-trading">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#431-credit-trading">#</doc-anchor-trigger>
+        <span>4.3.1 Credit Trading</span>
+    </h5>
+</doc-anchor-target>
+<p>In TradFi, credit trading was previously not possible, as credit is created through the fractional reserve banking system and controlled by a central entity. With web3, credit ownership is now possible, making trading a reality. With Empowr, users can manage their credit by increasing or decreasing their holdings through the DCE, or arbitrage to make risk-free profits.</p>
+<p>In TradFi, credit money is created through the fractional reserve banking system where banks own and manage credit to be lent out. This means, all the profits made from the creation of credit goes to the banks. Web 3 removes “trust” from the equation and opens up many new possibilities. At Apiary, we are reengineering how credit is created, giving its users ownership. This means, users have full autonomy and control over their credit, making trading of credit a reality. Users of the protocol can interact with the DCE to swap both credit and emp tokens to either increase or decrease their credit holdings or trade them however they deem fit.</p>
+<doc-anchor-target id="432-redistribution-of-wealth">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#432-redistribution-of-wealth">#</doc-anchor-trigger>
+        <span>4.3.2 Redistribution of Wealth</span>
+    </h5>
+</doc-anchor-target>
+<p>Due to the concave nature of the Credit Token value, each user will value their Credit Tokens differently, where:</p>
+<ul>
+<li>Users with larger holdings will value their Credit Tokens at a lower price relative to another user with a smaller holding. A lower valuation implies that they would be more likely to sell their token and less likely to buy Credit Tokens in the exchange.</li>
+<li>Likewise, users with smaller holdings will value each individual Credit Token at a higher price relative to another user with a larger holding. A higher valuation implies that they would be more likely to buy more tokens and less likely to sell their Credit Tokens in the exchange.</li>
+</ul>
+<p>This difference in valuation will omit tail-end users on either side of the market, allowing transfer of credit between users with larger and smaller Credit Token holdings, creating a more equitable outcome in the long-run while benefiting everyone in the process.</p>
+<doc-anchor-target id="433-liquidity-providers">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#433-liquidity-providers">#</doc-anchor-trigger>
+        <span>4.3.3 Liquidity Providers</span>
+    </h5>
+</doc-anchor-target>
+<p>Liquidity providers are an essential part of Empowr’s ecosystem as they provide positive externalities to the community. By locking up both Credit Tokens and EMP Tokens, the following is achieved:</p>
+<ul>
+<li>Reduction of price slippage during an exchange.</li>
+<li>Creation of scarcity of the EMP token in the secondary market, thereby producing an upward price pressure which benefits long term holders of the EMP token.</li>
+</ul>
+<p>Creation of stability in the Liquidity Facility, as the propensity for redemption through the Credit Facility is reduced, thereby increasing the overall TCDRN
+Empowr users who have no need for debt can choose to be Liquidity Providers by staking both Credit Tokens and EMP Tokens in the DCE. In exchange they will receive LP tokens that:</p>
+<ul>
+<li>Give them rights to a portion of the protocol revenue as a form of reward and incentive to stake their token.</li>
+<li>Tracks the relative proportion of the total reserve that each liquidity provider has contributed to the pool. They can be returned anytime to redeem a proportional share of the liquidity for the provider.</li>
+</ul>
+<doc-anchor-target id="5-decentralised-credit-exchange">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#5-decentralised-credit-exchange">#</doc-anchor-trigger>
+        <span>5 Decentralised Credit Exchange</span>
+    </h3>
+</doc-anchor-target>
+<p>EMP Token is an integral part of the Empowr ecosystem. The token is used to organically grow the protocol, with a participatory business model where investors = users. Economic incentives are provided for users to act in the best interest of the protocol, and users can earn EMP Tokens as a form of economic reward.</p>
+<p>For instance, EMP Token holders can stake in the liquidity pool to provide liquidity, and as a reward for doing so, receive a share of profits. Additionally, a Liquidity Provider must also obtain Credit Tokens, which puts an upward pressure on credit, improving the overall Debt-to-Credit health. Fees become cheaper, which encourages more people to take on more debt, thereby increasing protocol revenues. Some of this increased revenue which will go towards treasury spending aimed at continuously improving the protocol. This is Empowr’s flywheel – one which results in much stickier user adoption and continuous growth.</p>
+<doc-anchor-target id="51-fee-allocation">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#51-fee-allocation">#</doc-anchor-trigger>
+        <span>5.1 Fee Allocation</span>
+    </h4>
+</doc-anchor-target>
+<p>With full transparency, the protocol fees earned during the minting of ESC, withdrawal of Reserve Currency and conversion of EMP token to ESC token will be split equally in three ways where:</p>
+<ul>
+<li>The first portion will be reinvested back into the Empowr protocol, to maintain the ecosystem and provide capital for future growth.</li>
+<li>The second portion will be deposited into Empowr’s treasury, to be used to fund future dApps  that will promote growth of the ecosystem.</li>
+<li>The last portion will be used to fund the staking of rewards.</li>
+</ul>
+<doc-anchor-target id="52-comb-token-use-case">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#52-comb-token-use-case">#</doc-anchor-trigger>
+        <span>5.2 Comb Token Use-Case</span>
+    </h4>
+</doc-anchor-target>
+<p><strong>Payments</strong>: EMP tokens are used as a form of protocol currency to make payment for Empowr services such as minting, withdrawal and conversation.
+<strong>Decentralized Credit Exchange</strong>:  Liquidity providers use EMP Tokens combined with credit Tokens in the DCE. In return, they will receive a share of revenue generated from fees.
+<strong>Liquidity Converter</strong>:  EMP Token is used to maintain the stability of the ESC by providing arbitrageurs with risk-free profit through the conversion of EMP Tokens via the ESC.
+<strong>Rewards/Incentives</strong>: Users will be rewarded with EMP Tokens as a form of incentive that will positively benefit the Empowr Ecosystem.</p>
+<doc-anchor-target id="53-token-allocation">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#53-token-allocation">#</doc-anchor-trigger>
+        <span>5.3 Token Allocation</span>
+    </h4>
+</doc-anchor-target>
+<p>In the interest of transparency and full disclosure, 1,000,000,000 EMP Tokens will be minted at genesis and allocated as follows.</p>
+<p><strong>55% to Empowr protocol Community</strong>
+A maximum of 550,000,000 EMP will be allocated for liquidity programs, staking contracts and protocol stability.</p>
+<ul>
+<li>_______  EMP will be allocated  to reward early adopters of the protocol.</li>
+<li>_______ EMP will be allocated to Liquidity Providers as a form of reward for creating liquidity in external DEXes of the Credit Token.</li>
+<li>______ EMP will be reserved for users to purchase as a form of payment for Empowr services.</li>
+<li>______ EMP will be reserved in the liquidity converter smart contract for users convert EMP – ESC, or vice vera.</li>
+<li>______ EMP will be allocated for future protocol developments, fund grants and community events.</li>
+</ul>
+<p><strong>25% to Team, Advisors and contributing partners</strong></p>
+<ul>
+<li>250,000,000 EMP will be allocated to current (and future) Empowr employees and advisors.</li>
+<li>All EMP in this category are subject to a one-year lockup and are 1/4 vested after one year of engagement, then 1/36 every month after.</li>
+<li>Team Fund is primarily used to incentivize core Empowr members to contribute their full effort to the project, as well as to compensate external advisors.</li>
+<li>EMP will be allocated to contributing partners such as service providers who helped with Empowr Protocol in various ways before our launch.</li>
+<li>All EMP in this category are subject to a one-year lockup.</li>
+</ul>
+<p><strong>30% to Investors</strong></p>
+<ul>
+<li>300,000,000 EMP will be allocated to early investors of Empowr, to thank them for believing in the dream, supporting the vision and providing the runway necessary for us to succeed in the long run.</li>
+<li>Money raised from the sale will be used to build and fund the operating and marketing expenses in its early years until the protocol is self-sustaining.</li>
+<li>All EMP in this category are subject to a one-year lockup.</li>
+</ul>
+<doc-anchor-target id="6-conclusion">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#6-conclusion">#</doc-anchor-trigger>
+        <span>6 Conclusion</span>
+    </h3>
+</doc-anchor-target>
+<p>To conclude, Empowr aims to champion the rights of all, but especially those who have lived at the side-lines of society, unbanked or underserved by traditional financial institutions. By integrating cryptocurrency with real-world transactions, Empowr hopes to provide users with access to capital in the form of ESC, which can be used as a medium of exchange for the payment of goods. Our team at Empowr believe that with our commitment to accessibility, transparency and the democratization of financial access, we will be able to attract and retain users to the protocol.</p>
+<p>What makes Empowr novel is that we hope to make the concept of democratized credit a reality in the DeFi ecosystem. Moreover, credit can be exchanged anonymously between users – a development that is ground-breaking in itself. To do so, a stable digital currency (the ESC) is created to unlock credit, and as a way to store and transact value. The protocol maintains the stability of the ESC by adjusting the money supply in response to market liquidity, through arbitration and efficient risk management to ensure the protocol is always trust-less. All this is achieved using multiple complex algorithms in the Credit Facility, Liquidity Facility and the Decentralized Credit Exchange that work together simultaneously and harmoniously.</p>
+<p>In the future, Empowr aims to build its own blockchain and integrate dApps such as Credit Pooling and Leverage Trading while partnering with merchants and small businesses to create additional value through the EMP token.</p>
+<div class="math"><pre>P = \frac{R}{Q_N\times r}</pre></div>
+<div class="math"><pre>r = \frac{R}{P\times Q_N}</pre></div>
+<div class="math"><pre>q_n = Q_N(\frac{D_n}{R}+1)^r-1</pre></div>
+<div class="math"><pre>CTV_n=-r.P.Q_N\times ((\frac{q_n}{Q_N}+1)^\frac{1}{r} -1)\times P_{reserveToken,30ma}</pre></div>
+<div class="math"><pre>Quantity_{CTV}=-r.Q_N\times ((\frac{q_n}{Q_N}+1)^\frac{1}{r} -1)</pre></div>
+<div class="math"><pre>Price_{CTV}=P \times P_{reserveToken,30ma}</pre></div>
+<div class="math"><pre>CTV_n = Price_{CTV} \times Quantity_{CTV}</pre></div>
+<div class="math"><pre>creditCreated = \frac{\sum_{k=1}^nCTV_n}{R}</pre></div>
+<div class="math"><pre>withdrawal fee = f + B(t)</pre></div>
+<div class="math"><pre>B(t) = B(t - 1)_{\delta} + \alpha \times \frac{redeem_n}{Q_N}</pre></div>
+<div class="math"><pre>Decay Function: B(T-1)_{\delta} = B(T-1)\times \delta^{\Delta t}</pre></div>
+<div class="math"><pre>creditLine_n = Multiplier_n \times D_n</pre></div>
+<div class="math"><pre>Mint Fee = \frac{(Debt_{n,t-1}+Debt_{n,t})^{\alpha}}{Threshold_n} + \frac{Debt_N^{\beta}}{R} \times peg</pre></div>
+<div class="math"><pre>Threshold_n = (1 - r + \frac{D_n}{P\times q_n}) \times r.P.q_n</pre></div>
+<div class="math"><pre>distribution Parameter_n = \frac{creditLine_n - Debt_n}{\sum{creditLine_n-Debt_n}}</pre></div>
+<div class="math"><pre>TDCR_N = Total Credit to Debt Ratio = \frac{creditLine_N}{Debt_N}</pre></div>
+
+                                
+                                <!-- Required only on API pages -->
+                                <doc-toolbar-member-filter-no-results />
+                            </div>
+                            <footer class="clear-both">
+                            
+                                <nav class="flex mt-14">
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/honeycomb-tokenomics/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">Honeycomb Tokenomics</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                            
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/introduction/">
+                                            <span>
+                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                                                <span class="block mt-1">Introduction</span>
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </footer>
+                        </main>
+                
+                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between">
+                                <div>
+                                    <ul class="flex flex-wrap items-center text-sm">
+                                    </ul>
+                                </div>
+                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2022. All rights reserved.</p></div>
+                            </footer>
+                        </div>
+                    </div>
+                
+                    <!-- Rendered if sidebar right is enabled -->
+                    <!-- Sidebar right skeleton-->
+                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+                        <div class="pl-5">
+                            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                        </div>
+                    </div>
+                
+                    <!-- User should be able to hide sidebar right -->
+                    <doc-sidebar-right v-cloak></doc-sidebar-right>
+                </div>
+
+            </div>
+        </div>
+    
+        <doc-search-mobile></doc-search-mobile>
+        <doc-back-to-top></doc-back-to-top>
+    </div>
+
+
+    <div id="docs-overlay-target"></div>
+
+    <script>window.__DOCS__ = { "title": "Honeycomb White Paper V1", icon: "file", hasPrism: false, hasMermaid: false, hasMath: true }</script>
+</body>
+</html>
