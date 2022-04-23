@@ -1,0 +1,8 @@
+### 1. Abstract 
+Honeycomb protocol is the first _community-driven_, decentralized credit protocol that seeks to redefine the traditional [fractional banking system](https://www.investopedia.com/terms/f/fractionalreservebanking.asp) and _democratize credit_. The democratization of credit is achieved through the use of blockchain technology, which employs algorithmic smart contracts, eliminating the need for trust. Honeycomb also introduces a stable digital currency designed to complement both fiat and cryptocurrencies as a means to transact and store value. At Honeycomb, we are guided by the belief that credit should be transparent, accessible, and inclusive. 
+
+In traditional finance (TradFi), banks create [_credit money_](https://www.investopedia.com/terms/c/credit-money.asp) by lending deposits out and profiting from it. Honeycomb Protocol adopts a radically different approach, instead taking in deposits as a reserve. In turn, credit is created following an algorithm programmed into an on-chain credit facility. As a result, users attain _true credit_[^1] and _ownership_ and ultimately the freedom to borrow, earn or swap as they desire. 
+
+Other DeFi borrowing and lending protocols do indeed exist on the blockchain, but Honeycomb Protocol differentiates itself from the status quo by providing under-collateralized loans with zero interest and no fixed repayment date. Additionally, an unprecedented credit swap facility is introduced to give Honeycomb users the ability to earn a portion of the protocol’s revenue, or to trade credit so as to realize its future value.
+
+[^1]: True Credit is defined as the amount of money an individual can  access and its value is greater than its collateral.
